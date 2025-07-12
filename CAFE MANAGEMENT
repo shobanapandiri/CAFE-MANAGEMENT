@@ -1,0 +1,40 @@
+# Define the menu with item names as keys and their prices as values
+menu = {
+    'pizza': 120,
+    'pasta': 80,
+    'burger': 80,
+    'chicken wings': 150,
+}
+
+# Print welcome message and show menu
+print("Welcome to Shobana Restaurant")
+print("pizza: Rs120\npasta: Rs80\nburger: Rs80\nchicken wings: Rs150\n")
+
+# Initialize total order amount
+order_total = 0
+
+# Prompt user to input the first item they want to order
+item_1 = input("Enter the name of the item you want to order: ")
+
+# Check if item is in the menu
+if item_1 in menu:
+    order_total += menu[item_1]  # Add price to total
+    print(f"Your item '{item_1}' has been added to your cart")
+else:
+    print(f"Ordered item '{item_1}' is not available yet")
+
+# Ask if user wants to add another item
+another_order = input("Do you want to add another item (yes/no)? ")
+
+# If yes, get the second item and repeat the check
+if another_order.lower() == "yes":  # Use .lower() for case-insensitive input
+    item_2 = input("Enter the name of the second item: ")
+    if item_2 in menu:
+        order_total += menu[item_2]
+        print(f"Item '{item_2}' has been added to your cart")
+    else:
+        print(f"Ordered item '{item_2}' is not in the menu")
+
+# Print final total
+print(f"The total amount of your order is Rs{order_total}")
+
